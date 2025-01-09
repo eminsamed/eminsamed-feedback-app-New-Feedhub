@@ -45,7 +45,7 @@ export default function Users() {
       try {
         const db = getFirestore();
 
-        // Firestore'dan kullanıcıları al
+        // Get users from Firestore
         const querySnapshot = await getDocs(collection(db, 'users'));
         const usersList = querySnapshot.docs.map((userDoc) => ({
           email: userDoc.data().email,

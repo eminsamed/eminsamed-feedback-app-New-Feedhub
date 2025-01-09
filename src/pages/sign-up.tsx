@@ -20,10 +20,10 @@ export default function SignUpPage() {
       const auth = getAuth();
       const db = getFirestore();
 
-      // Kullanıcıyı Firebase Authentication ile kaydet
+      // Register user with Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-      // Kullanıcıyı Firestore'a ekle
+      // Add user to Firestore
       await addDoc(collection(db, 'users'), {
         email: userCredential.user.email,
         uid: userCredential.user.uid,
